@@ -25,6 +25,8 @@ const App = () => {
       email: contactEmail
     };
 
+    const url = `${baseApiUrl}/contacts`;
+    axios.post(url, item);
     setContacts([...contacts, item]);
   }
 
