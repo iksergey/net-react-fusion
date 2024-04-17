@@ -12,7 +12,7 @@ const App = () => {
     ]
   );
 
-  const addContact = () => {
+  const addContact = (contactName, contactEmail) => {
     const newId = Math.max(
       ...contacts.map(e => e.id)) + 1;
 
@@ -20,8 +20,8 @@ const App = () => {
 
     const item = {
       id: newId,
-      name: 'Имя Фамилия 3',
-      email: "q@e3.rt"
+      name: contactName,
+      email: contactEmail
     };
 
     setContacts([...contacts, item]);
