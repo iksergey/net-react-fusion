@@ -16,8 +16,6 @@ const App = () => {
     const newId = Math.max(
       ...contacts.map(e => e.id)) + 1;
 
-    console.log(newId);
-
     const item = {
       id: newId,
       name: contactName,
@@ -25,7 +23,6 @@ const App = () => {
     };
 
     setContacts([...contacts, item]);
-    console.log(contacts);
   }
 
   return (
