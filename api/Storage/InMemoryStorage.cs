@@ -19,17 +19,17 @@ public class InMemoryStorage : IStorage
         return Contacts;
     }
 
-    public bool Add(Contact contact)
+    public Contact Add(Contact contact)
     {
         foreach (var item in Contacts)
         {
             if (contact.Id == item.Id)
             {
-                return false;
+                return null;
             }
         }
         Contacts.Add(contact);
-        return true;
+        return contact;
     }
 
     public bool Remove(int id)

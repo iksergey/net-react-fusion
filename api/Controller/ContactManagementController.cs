@@ -12,8 +12,8 @@ public class ContactManagementController : BaseController
     [HttpPost("contacts")]
     public IActionResult Create([FromBody] Contact contact)
     {
-        bool res = storage.Add(contact);
-        if (res)
+        Contact res = storage.Add(contact);
+        if (res != null)
         {
             return Ok(contact);
         }
