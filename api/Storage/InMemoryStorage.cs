@@ -1,4 +1,4 @@
-public class InMemoryStorage
+public class InMemoryStorage : IStorage
 {
     private List<Contact> Contacts { get; set; }
 
