@@ -11,14 +11,15 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 builder.Services.AddControllers();
-builder.Services.AddSingleton<IStorage>(new SqliteStorage("Data Source=contacts.db"));
+var stringConnection = builder.Configuration.GetConnectionString("SqliteStringConnection");
+builder.Services.AddSingleton<IStorage>(new SqliteStorage(stringConnection));
 
 builder.Services.AddCors(opt =>
 opt.AddPolicy("CorsPolicy", policy =>
 {
     policy.AllowAnyMethod()
     .AllowAnyHeader()
-    .WithOrigins(args[0]);
+    .WithOrigins(builder.Configuration["client"]);
 }));
 
 var app = builder.Build();
