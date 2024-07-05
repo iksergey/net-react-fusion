@@ -42,4 +42,15 @@ public class ContactManagementController : BaseController
         return Conflict("Контакт с указанным ID не нашёлся");
     }
 
+    [HttpGet("contacts/{id}")]
+    public IActionResult GetContact(int id)
+    {
+        var contact = storage.GetContactById(id);
+        if (contact != null)
+        {
+            return Ok(contact);
+        }
+        return NotFound();
+    }
+
 }
