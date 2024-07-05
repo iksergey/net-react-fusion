@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Mvc;
 
 public class ContactManagementController : BaseController
 {
-    private readonly IStorage storage;
+    private readonly IPaginationStorage storage;
 
-    public ContactManagementController(IStorage storage)
+    public ContactManagementController(IPaginationStorage storage)
     {
         this.storage = storage;
     }
