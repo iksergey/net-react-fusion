@@ -51,3 +51,34 @@
   "email": "string"
 }
 ```
+
+### EF Core
+
+[Документация EF Core](https://learn.microsoft.com/en-us/ef/core/cli/dotnet)
+
+1 **Глобальная установка `dotnet-ef`**: Откройте командную строку или терминал и выполните команду:
+   ```bash
+   dotnet tool install --global dotnet-ef
+   ```
+2. **Обновление `dotnet-ef`**: Для обновления инструмента `dotnet-ef` до последней версии выполните команду:
+   ```bash
+   dotnet tool update --global dotnet-ef
+   ```
+   Эта команда проверит наличие обновлений для `dotnet-ef` и обновит его до последней доступной версии.
+
+### Библиотеки, необходимые для начала работы с SQLite по средствам EF Core
+
+1. `dotnet add package Microsoft.EntityFrameworkCore.Sqlite`
+   - позволяет использовать SQLite в качестве базы данных для EF Core.
+2. `dotnet add package Microsoft.EntityFrameworkCore`
+   - Содержит основные функции и API EF Core для работы с различными типами баз данных.
+3. `dotnet add package Microsoft.EntityFrameworkCore.Design`
+   - Необходим для создания и работы с миграциями EF Core из командной строки.
+
+### Работа с миграциями
+
+Миграции в EF Core представляют собой способ управления изменениями в структуре базы данных с помощью кода.
+
+- `dotnet ef migrations add InitialCreate`: создает новую миграцию с именем "InitialCreate". 
+
+- `dotnet ef database update`: применяет все ожидающие миграции к базе данных, что означает, что изменения, описанные в последней созданной миграции с помощью `dotnet ef migrations add ...`, будут применены к базе данных.
