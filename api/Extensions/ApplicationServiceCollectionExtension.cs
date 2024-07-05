@@ -20,7 +20,7 @@ public static class ApplicationServiceCollectionExtension
         var stringConnection = configuration.GetConnectionString("SqliteStringConnection");
         services.AddDbContext<SqliteDbContext>(opt => opt.UseSqlite(stringConnection));
         services.AddScoped<IStorage, SqliteEfStorage>();
-
+        services.AddScoped<IInitializer, SqliteEfFakerInitializer>();
         services.AddCors(opt =>
         opt.AddPolicy("CorsPolicy", policy =>
         {
