@@ -29,6 +29,15 @@ const ContactDetails = () => {
         }
     }
 
+    const handleUpdate = () => {
+        const url = `${baseApiUrl}/contacts/${id}`;
+        axios.put(url, contact).then(
+            navigate("/")
+        ).catch(
+            console.log("Ошибка обновления")
+        );
+    }
+
     return (
         <div className="container mt-5">
             <h2>Детали контакта</h2>
@@ -38,7 +47,7 @@ const ContactDetails = () => {
                     className="form-control"
                     type="text"
                     value={contact.name}
-                    onChange={(e) => { }}
+                    onChange={(e) => { setContact({ ...contact, name: e.target.value }); }}
                 />
             </div>
             <div className="mb-3">
@@ -47,11 +56,11 @@ const ContactDetails = () => {
                     className="form-control"
                     type="email"
                     value={contact.email}
-                    onChange={(e) => { }}
+                    onChange={(e) => { setContact({ ...contact, email: e.target.value }); }}
                 />
             </div>
             <button
-                className="btn btn-primary me-2" onClick={(e) => { }}>
+                className="btn btn-primary me-2" onClick={(e) => { handleUpdate(); }}>
                 Обновить
             </button>
 
