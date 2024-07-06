@@ -54,7 +54,7 @@ const App = () => {
                         </div>
                     </div>
                 } />
-                <Route path="contact/:id" element={<>Hello</>} />
+                <Route path="contact/:id" element={<ContactDetails />} />
             </Routes>
         </div>
     );
