@@ -1,7 +1,7 @@
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     const pageNumber = [];
     let startPage, endPage;
-    const countPagination = 6;
+    const countPagination = 8;
 
     if (totalPages <= countPagination) {
         startPage = 1;
