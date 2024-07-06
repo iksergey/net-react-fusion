@@ -29,12 +29,6 @@ const App = () => {
         );
     }
 
-    const deleteContact = (id) => {
-        const url = `${baseApiUrl}/contacts/${id}`;
-        axios.delete(url);
-        setContacts(contacts.filter(item => item.id !== id));
-    }
-
     return (
         <div className="container mt-5">
             <Routes>
@@ -47,7 +41,6 @@ const App = () => {
                         <div className="card-body">
                             <TableContact
                                 contacts={contacts}
-                                deleteContact={deleteContact}
                             />
                             <FormContact addContact={addContact} />
 
