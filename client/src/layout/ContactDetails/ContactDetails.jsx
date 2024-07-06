@@ -18,6 +18,17 @@ const ContactDetails = () => {
         )
     }, [id, navigate]);
 
+    const handleRemove = () => {
+        const url = `${baseApiUrl}/contacts/${id}`;
+        if (window.confirm("Вы уверены?")) {
+            axios.delete(url).then(
+                navigate("/")
+            ).catch(
+                console.log("Ошибка удаления")
+            );
+        }
+    }
+
     return (
         <div className="container mt-5">
             <h2>Детали контакта</h2>
@@ -45,7 +56,7 @@ const ContactDetails = () => {
             </button>
 
             <button
-                className="btn btn-danger" onClick={(e) => { }}>
+                className="btn btn-danger" onClick={(e) => { handleRemove(); }}>
                 Удалить
             </button>
 
