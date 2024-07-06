@@ -50,7 +50,7 @@ const ContactDetails = () => {
             </button>
 
             <button
-                className="btn btn-secondary ms-2" onClick={(e) => { }}>
+                className="btn btn-secondary ms-2" onClick={(e) => { navigate("/"); }}>
                 Назад
             </button>
         </div>);
