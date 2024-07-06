@@ -1,4 +1,22 @@
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
+
+const baseApiUrl = process.env.REACT_APP_API_URL;
+
 const ContactDetails = () => {
+    const [contact, setContact] = useState({ name: "", email: "" });
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const url = `${baseApiUrl}/contacts/${id}`;
+        axios.get(url).then(
+            response => setContact(response.data)
+        ).catch(
+            err => navigate("/")
+        )
+    }, [id, navigate]);
 
     return (
         <div className="container mt-5">
@@ -8,7 +26,7 @@ const ContactDetails = () => {
                 <input
                     className="form-control"
                     type="text"
-                    // value={}
+                    value={contact.name}
                     onChange={(e) => { }}
                 />
             </div>
@@ -17,7 +35,7 @@ const ContactDetails = () => {
                 <input
                     className="form-control"
                     type="email"
-                    // value={}
+                    value={contact.email}
                     onChange={(e) => { }}
                 />
             </div>
