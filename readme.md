@@ -95,3 +95,10 @@ npm install react-router-dom
 2. **Навигация**: Включает компоненты и функции для навигации между страницами, такие как `<Link>`, `<NavLink>`, и программная навигация с помощью хука `useHistory`.
 3. **Динамические маршруты**: Поддерживает параметры маршрута для создания динамических путей.
 4. **Защищенные маршруты**: Можно создать маршруты, доступные только авторизованным пользователям.
+
+### Пагинация
+
+Полезные ссылки
+- [bootstrap components](https://getbootstrap.com/docs/5.0/components/pagination/)
+- [bootstrap docs](https://getbootstrap.com/docs/5.3/migration/#pagination)
+- [bootstrap examples](https://getbootstrap.com/docs/5.3/examples/)
