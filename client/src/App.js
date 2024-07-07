@@ -14,6 +14,11 @@ const App = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPages, setTotalPages] = useState(0);
     const [pageSize] = useState(10);
+    const [updateTrigger, setUpdateTrigger] = useState(0);
+
+    const handelUpdateTrigger = () => {
+        setUpdateTrigger(updateTrigger + 1);
+    }
 
     const handlePageChange = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -54,7 +59,7 @@ const App = () => {
                         </div>
                     </div>
                 } />
-                <Route path="contact/:id" element={<ContactDetails />} />
+                <Route path="contact/:id" element={<ContactDetails onUpdate={handelUpdateTrigger} />} />
                 <Route path="append" element={<AppendContact />} />
             </Routes>
         </div>
