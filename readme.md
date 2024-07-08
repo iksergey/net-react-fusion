@@ -109,3 +109,24 @@ npm install react-router-dom
 - [HTTP Pipelines docs](https://learn.microsoft.com/en-us/archive/msdn-magazine/2002/september/asp-net-request-processing-filtering-and-content-redirection)
 - [.net MVC 3 Request event so](https://stackoverflow.com/questions/4630209/net-mvc-3-request-event)
 - [Global Error Handling in ASP.NET Core 8 medium](https://medium.com/@MilanJovanovicTech/global-error-handling-in-asp-net-core-8-22e30dadc1fe)
+
+### Docker
+
+- `docker build -t full-contact . --no-cache` создания Docker-образа, ` --no-cache` не использовать кэш от предыдущих сборок
+- `docker run -d -p 8001:5000 full-contact --name app-contact-1` создает и запускает новый контейнер в фоновом режиме на основе образа "full-contact", связывает порт 8001 хоста с портом 5000 контейнера и присваивает контейнеру имя "app-contact-1".
+- `docker tag full-contact iksergey/full-contact:latest` создает новый тег для существующего Docker-образа
+- `docker push iksergey/full-contact:latest` отправляет локальный Docker-образ в удаленный репозиторий
+- `docker run -d -p 8001:5000 iksergey/full-contact:latest --name app-contact-1` создает и запускает новый контейнер после pull
+
+```json
+"Logging": {
+    "LogLevel": {
+        "Default": "Information",
+        "Microsoft.AspNetCore": "Information"
+    }
+},
+"ConnectionStrings": {
+    "SqliteStringConnection": "Data Source=contacts.db"
+},
+"client": "http://localhost:3000"
+```
