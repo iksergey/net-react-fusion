@@ -130,3 +130,63 @@ npm install react-router-dom
 },
 "client": "http://localhost:3000"
 ```
+
+### Настройка vps
+
+[оригинал статьи](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04-ru)
+
+Первым делом обновите существующий список пакетов:
+`sudo apt update`
+
+Затем установите несколько необходимых пакетов, которые позволяют apt использовать пакеты через HTTPS:
+`sudo apt install apt-transport-https ca-certificates curl software-properties-common`
+
+Добавьте ключ GPG для официального репозитория Docker в вашу систему:
+`curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -`
+
+Добавьте репозиторий Docker в источники APT:
+`sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"`
+
+Потом обновите базу данных пакетов и добавьте в нее пакеты Docker из недавно добавленного репозитория:
+`sudo apt update`
+
+Убедитесь, что установка будет выполняться из репозитория Docker, а не из репозитория Ubuntu по умолчанию:
+`apt-cache policy docker-ce`
+
+Вы должны получить следующий вывод, хотя номер версии Docker может отличаться:
+```bash
+Output of apt-cache policy docker-ce
+docker-ce:
+  Installed: (none)
+  Candidate: 5:19.03.9~3-0~ubuntu-focal
+  Version table:
+     5:19.03.9~3-0~ubuntu-focal 500
+        500 https://download.docker.com/linux/ubuntu focal/stable amd64 Packages
+```
+
+Обратите внимание, что docker-ce не установлен, но является кандидатом на установку из репозитория Docker для Ubuntu 20.04 (версия focal).
+
+Установите Docker:
+`sudo apt install docker-ce`
+
+Docker должен быть установлен, демон-процесс запущен, а для процесса активирован запуск при загрузке. Проверьте, что он запущен:
+`sudo systemctl status docker`
+
+Вывод должен выглядеть примерно следующим образом, указывая, что служба активна и запущена:
+
+```bash
+Output
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Tue 2020-05-19 17:00:41 UTC; 17s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 24321 (dockerd)
+      Tasks: 8
+     Memory: 46.4M
+     CGroup: /system.slice/docker.service
+             └─24321 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+```
+
+Проверьте версию Docker
+`docker --version`
