@@ -6,6 +6,7 @@ app.Services.AddCustomService(builder.Configuration);
 app.UseSwagger();
 app.UseSwaggerUI();
 
+app.UseConfigMiddleware();
 app.UseDefaultFiles();
 app.UseStaticFiles();
 app.MapFallbackToController("Index", "Fallback");

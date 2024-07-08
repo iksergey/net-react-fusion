@@ -102,3 +102,10 @@ npm install react-router-dom
 - [bootstrap components](https://getbootstrap.com/docs/5.0/components/pagination/)
 - [bootstrap docs](https://getbootstrap.com/docs/5.3/migration/#pagination)
 - [bootstrap examples](https://getbootstrap.com/docs/5.3/examples/)
+
+### Middleware pipeline 
+
+- [ASP.NET Core Middleware docs](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/middleware/?tabs=aspnetcore2x&view=aspnetcore-8.0)
+- [HTTP Pipelines docs](https://learn.microsoft.com/en-us/archive/msdn-magazine/2002/september/asp-net-request-processing-filtering-and-content-redirection)
+- [.net MVC 3 Request event so](https://stackoverflow.com/questions/4630209/net-mvc-3-request-event)
+- [Global Error Handling in ASP.NET Core 8 medium](https://medium.com/@MilanJovanovicTech/global-error-handling-in-asp-net-core-8-22e30dadc1fe)
