@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const baseApiUrl = process.env.REACT_APP_API_URL;
+const baseApiUrl = window.config.apiUrl;
 
 const ContactDetails = (props) => {
     const [contact, setContact] = useState({ name: "", email: "" });
